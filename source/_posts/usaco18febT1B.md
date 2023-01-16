@@ -4,6 +4,7 @@ date: 2023-01-16 19:41:51
 tags:
   - USACO
   - USACO Bronze
+  - 暴力
 categories:
   - 题解
 mathjax: true
