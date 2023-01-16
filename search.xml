@@ -40,4 +40,19 @@
         <tag>ABC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>USACO 18Feb Bronze T1. Teleportation 题解</title>
+    <url>/2023/01/16/usaco18febT1B/</url>
+    <content><![CDATA[<p>题意：在一条直线上有四个点 <span class="math inline">\(A, B, X, Y\)</span>，其中 <span class="math inline">\(X, Y\)</span> 两点可以通过传送门互相传送，求 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的最短距离。</p>
+<p>易得总共只有三种情况：<span class="math inline">\(A\)</span> 直接到 <span class="math inline">\(B\)</span>，<span class="math inline">\(A\)</span> 到 <span class="math inline">\(X\)</span> 传送到 <span class="math inline">\(Y\)</span> 再到 <span class="math inline">\(B\)</span>，<span class="math inline">\(A\)</span> 到 <span class="math inline">\(Y\)</span> 传送到 <span class="math inline">\(X\)</span> 再到 <span class="math inline">\(B\)</span>。直接计算即可。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a, b, x, y;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">freopen</span>(<span class="string">&quot;teleport.in&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">  <span class="built_in">freopen</span>(<span class="string">&quot;teleport.out&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line">  cin &gt;&gt; a &gt;&gt; b &gt;&gt; x &gt;&gt; y;</span><br><span class="line">  cout&lt;&lt;<span class="built_in">min</span>(&#123;<span class="built_in">abs</span>(a-b), <span class="built_in">abs</span>(a-x)+<span class="built_in">abs</span>(b-y), <span class="built_in">abs</span>(a-y)+<span class="built_in">abs</span>(b-x)&#125;)&lt;&lt;endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>USACO</tag>
+        <tag>USACO Bronze</tag>
+      </tags>
+  </entry>
 </search>
