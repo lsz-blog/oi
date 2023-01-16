@@ -41,6 +41,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Codeforces 231A - Team</title>
+    <url>/2023/01/16/cf231a/</url>
+    <content><![CDATA[<p>题意：给定 <span class="math inline">\(n\)</span> 个题目，三个人对每道题每人都给出是否确定能解决，求至少有两个人确定能解决的题目数。</p>
+<p>显然只需判断每道题给定的三个 <code>0/1</code> 之和是否大于等于 <span class="math inline">\(2\)</span> 即可。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n, ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>, a, b, c; i &lt;= n; i++)</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c, ans += (a+b+c)&gt;=<span class="number">2</span>;</span><br><span class="line">  cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>CodeForces</tag>
+        <tag>CF Div.2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>USACO 18Feb Bronze T1. Teleportation 题解</title>
     <url>/2023/01/16/usaco18febT1B/</url>
     <content><![CDATA[<p>题意：在一条直线上有四个点 <span class="math inline">\(A, B, X, Y\)</span>，其中 <span class="math inline">\(X, Y\)</span> 两点可以通过传送门互相传送，求 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的最短距离。</p>
