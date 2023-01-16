@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,7 +161,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-01-16 19:50:54 / 修改时间：19:53:26" itemprop="dateCreated datePublished" datetime="2023-01-16T19:50:54+08:00">2023-01-16</time>
+      <time title="创建时间：2023-01-16 19:50:54 / 修改时间：19:59:07" itemprop="dateCreated datePublished" datetime="2023-01-16T19:50:54+08:00">2023-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -291,6 +291,102 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://oi.shuzhouliu.bio/2023/01/16/cf546a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="shuzhou liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shuzhouliu's OI Blog">
+      <meta itemprop="description" content="shuzhouliu's OI Blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | shuzhouliu's OI Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/16/cf546a/" class="post-title-link" itemprop="url">Codeforces 546A - Soldier and Bananas</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-01-16 19:50:54 / 修改时间：19:59:07" itemprop="dateCreated datePublished" datetime="2023-01-16T19:50:54+08:00">2023-01-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>91</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>题意：给定 <span class="math inline">\(k\)</span>，<span class="math inline">\(n\)</span>，<span class="math inline">\(w\)</span>，求至少需要多少钱才能买到 <span class="math inline">\(w\)</span> 个香蕉，其中第 <span class="math inline">\(i\)</span> 个香蕉需要 <span class="math inline">\(i \times k\)</span> 钱。</p>
+<p>注意不需要借钱的时候就不用借了，直接输出 <span class="math inline">\(0\)</span> 即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> k,n,w;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;k&gt;&gt;n&gt;&gt;w;</span><br><span class="line">	<span class="type">int</span> _pay=w*(w+<span class="number">1</span>)/<span class="number">2</span>*k;</span><br><span class="line">	cout&lt;&lt;<span class="built_in">max</span>(_pay-n,<span class="number">0</span>)&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://oi.shuzhouliu.bio/2023/01/16/usaco18febT1B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -321,7 +417,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-01-16 19:41:51 / 修改时间：19:53:26" itemprop="dateCreated datePublished" datetime="2023-01-16T19:41:51+08:00">2023-01-16</time>
+      <time title="创建时间：2023-01-16 19:41:51 / 修改时间：19:59:07" itemprop="dateCreated datePublished" datetime="2023-01-16T19:41:51+08:00">2023-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -423,7 +519,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-16 19:53:26" itemprop="dateModified" datetime="2023-01-16T19:53:26+08:00">2023-01-16</time>
+      <time title="修改时间：2023-01-16 19:59:07" itemprop="dateModified" datetime="2023-01-16T19:59:07+08:00">2023-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
