@@ -20,32 +20,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"oi.shuzhouliu.bio","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null,"activeClass":"giscus"},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":10,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="题意：给定 \(k\)，\(n\)，\(w\)，求至少需要多少钱才能买到 \(w\) 个香蕉，其中第 \(i\) 个香蕉需要 \(i \times k\) 钱。 注意不需要借钱的时候就不用借了，直接输出 \(0\) 即可。 123456789#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int k,n,w;int main()&amp;#123;	cin">
+    <meta name="description" content="题意：给定一个 \(10\times 10\) 的矩阵，有一个 B、一个 L 和一个 R，其中 R 那格不能走。现在求 B 和 L 之间的最短路（不包括 B 和 L）。 这题是1权图的最短路，可以用 BFS 求。对于 R 那格特判即可。 123456789101112131415161718192021222324252627282930313233343536373839#include&lt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 546A - Soldier and Bananas">
-<meta property="og:url" content="https://oi.shuzhouliu.bio/2023/01/16/cf546a/index.html">
+<meta property="og:title" content="USACO 19Open Bronze T1 - Bucket Brigade 题解">
+<meta property="og:url" content="https://oi.shuzhouliu.bio/2023/01/17/usaco19openT1B/index.html">
 <meta property="og:site_name" content="shuzhouliu&#39;s OI Blog">
-<meta property="og:description" content="题意：给定 \(k\)，\(n\)，\(w\)，求至少需要多少钱才能买到 \(w\) 个香蕉，其中第 \(i\) 个香蕉需要 \(i \times k\) 钱。 注意不需要借钱的时候就不用借了，直接输出 \(0\) 即可。 123456789#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int k,n,w;int main()&amp;#123;	cin">
+<meta property="og:description" content="题意：给定一个 \(10\times 10\) 的矩阵，有一个 B、一个 L 和一个 R，其中 R 那格不能走。现在求 B 和 L 之间的最短路（不包括 B 和 L）。 这题是1权图的最短路，可以用 BFS 求。对于 R 那格特判即可。 123456789101112131415161718192021222324252627282930313233343536373839#include&lt;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-16T12:01:00.000Z">
+<meta property="article:published_time" content="2023-01-17T01:26:35.000Z">
 <meta property="article:modified_time" content="2023-01-17T01:30:15.951Z">
 <meta property="article:author" content="shuzhou liu">
-<meta property="article:tag" content="CodeForces">
-<meta property="article:tag" content="CF Div.2">
-<meta property="article:tag" content="模拟">
-<meta property="article:tag" content="暴力">
-<meta property="article:tag" content="数学">
+<meta property="article:tag" content="USACO">
+<meta property="article:tag" content="USACO Bronze">
+<meta property="article:tag" content="搜索">
+<meta property="article:tag" content="图">
+<meta property="article:tag" content="BFS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://oi.shuzhouliu.bio/2023/01/16/cf546a/">
+<link rel="canonical" href="https://oi.shuzhouliu.bio/2023/01/17/usaco19openT1B/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://oi.shuzhouliu.bio/2023/01/16/cf546a/","path":"2023/01/16/cf546a/","title":"Codeforces 546A - Soldier and Bananas"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://oi.shuzhouliu.bio/2023/01/17/usaco19openT1B/","path":"2023/01/17/usaco19openT1B/","title":"USACO 19Open Bronze T1 - Bucket Brigade 题解"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Codeforces 546A - Soldier and Bananas | shuzhouliu's OI Blog</title>
+<title>USACO 19Open Bronze T1 - Bucket Brigade 题解 | shuzhouliu's OI Blog</title>
   
 
 
@@ -202,7 +202,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://oi.shuzhouliu.bio/2023/01/16/cf546a/">
+    <link itemprop="mainEntityOfPage" href="https://oi.shuzhouliu.bio/2023/01/17/usaco19openT1B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -215,12 +215,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Codeforces 546A - Soldier and Bananas | shuzhouliu's OI Blog">
+      <meta itemprop="name" content="USACO 19Open Bronze T1 - Bucket Brigade 题解 | shuzhouliu's OI Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Codeforces 546A - Soldier and Bananas
+          USACO 19Open Bronze T1 - Bucket Brigade 题解
         </h1>
 
         <div class="post-meta-container">
@@ -230,15 +230,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-01-16 20:01:00" itemprop="dateCreated datePublished" datetime="2023-01-16T20:01:00+08:00">2023-01-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-17 09:30:15" itemprop="dateModified" datetime="2023-01-17T09:30:15+08:00">2023-01-17</time>
+      <time title="创建时间：2023-01-17 09:26:35 / 修改时间：09:30:15" itemprop="dateCreated datePublished" datetime="2023-01-17T09:26:35+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,7 +251,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>91</span>
+      <span>257</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -275,9 +269,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>题意：给定 <span class="math inline">\(k\)</span>，<span class="math inline">\(n\)</span>，<span class="math inline">\(w\)</span>，求至少需要多少钱才能买到 <span class="math inline">\(w\)</span> 个香蕉，其中第 <span class="math inline">\(i\)</span> 个香蕉需要 <span class="math inline">\(i \times k\)</span> 钱。</p>
-<p>注意不需要借钱的时候就不用借了，直接输出 <span class="math inline">\(0\)</span> 即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> k,n,w;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;k&gt;&gt;n&gt;&gt;w;</span><br><span class="line">	<span class="type">int</span> _pay=w*(w+<span class="number">1</span>)/<span class="number">2</span>*k;</span><br><span class="line">	cout&lt;&lt;<span class="built_in">max</span>(_pay-n,<span class="number">0</span>)&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>题意：给定一个 <span class="math inline">\(10\times 10\)</span> 的矩阵，有一个 <code>B</code>、一个 <code>L</code> 和一个 <code>R</code>，其中 <code>R</code> 那格不能走。现在求 <code>B</code> 和 <code>L</code> 之间的最短路（不包括 <code>B</code> 和 <code>L</code>）。</p>
+<p>这题是1权图的最短路，可以用 BFS 求。对于 <code>R</code> 那格特判即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dx[] = &#123;<span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dy[] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"><span class="type">char</span> c[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">bool</span> vst[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> bx, by, rx, ry, lx, ly;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">state</span> &#123;</span><br><span class="line">  <span class="type">int</span> x, y, t;</span><br><span class="line">  <span class="built_in">state</span> (<span class="type">int</span> x = <span class="number">0</span>, <span class="type">int</span> y = <span class="number">0</span>, <span class="type">int</span> t = <span class="number">0</span>): <span class="built_in">x</span>(x), <span class="built_in">y</span>(y), <span class="built_in">t</span>(t) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">freopen</span>(<span class="string">&quot;buckets.in&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">  <span class="built_in">freopen</span>(<span class="string">&quot;buckets.out&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">      cin &gt;&gt; c[i][j];</span><br><span class="line">      <span class="keyword">if</span> (c[i][j] == <span class="string">&#x27;B&#x27;</span>) bx = i, by = j;</span><br><span class="line">      <span class="keyword">if</span> (c[i][j] == <span class="string">&#x27;R&#x27;</span>) rx = i, ry = j;</span><br><span class="line">      <span class="keyword">if</span> (c[i][j] == <span class="string">&#x27;L&#x27;</span>) lx = i, ly = j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  queue&lt;state&gt; q;</span><br><span class="line">  q.<span class="built_in">push</span>(&#123;lx, ly, <span class="number">0</span>&#125;); <span class="comment">// ltob</span></span><br><span class="line">  <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    <span class="keyword">auto</span> t = q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    vst[t.x][t.y] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (t.x == bx &amp;&amp; t.y == by) &#123;</span><br><span class="line">      cout &lt;&lt; <span class="built_in">max</span>(t.t<span class="number">-1</span>, <span class="number">0</span>) &lt;&lt; endl;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++) &#123;</span><br><span class="line">      <span class="type">int</span> nx = t.x + dx[k], ny = t.y + dy[k];</span><br><span class="line">      <span class="keyword">if</span> (nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; <span class="number">10</span> &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; <span class="number">10</span> &amp;&amp; (rx != nx || ry != ny) &amp;&amp; !vst[nx][ny])</span><br><span class="line">        q.<span class="built_in">push</span>(&#123;nx, ny, t.t + <span class="number">1</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -295,7 +289,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://oi.shuzhouliu.bio/2023/01/16/cf546a/" title="Codeforces 546A - Soldier and Bananas">https://oi.shuzhouliu.bio/2023/01/16/cf546a/</a>
+      <a href="https://oi.shuzhouliu.bio/2023/01/17/usaco19openT1B/" title="USACO 19Open Bronze T1 - Bucket Brigade 题解">https://oi.shuzhouliu.bio/2023/01/17/usaco19openT1B/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！
@@ -304,25 +298,22 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/CodeForces/" rel="tag"># CodeForces</a>
-              <a href="/tags/CF-Div-2/" rel="tag"># CF Div.2</a>
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"># 模拟</a>
-              <a href="/tags/%E6%9A%B4%E5%8A%9B/" rel="tag"># 暴力</a>
-              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+              <a href="/tags/USACO/" rel="tag"># USACO</a>
+              <a href="/tags/USACO-Bronze/" rel="tag"># USACO Bronze</a>
+              <a href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag"># 搜索</a>
+              <a href="/tags/%E5%9B%BE/" rel="tag"># 图</a>
+              <a href="/tags/BFS/" rel="tag"># BFS</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/01/16/cf231a/" rel="prev" title="Codeforces 231A - Team">
-                  <i class="fa fa-chevron-left"></i> Codeforces 231A - Team
+                <a href="/2023/01/17/usaco20janT1B/" rel="prev" title="USACO 20Jan Bronze T1. Word Processor 题解">
+                  <i class="fa fa-chevron-left"></i> USACO 20Jan Bronze T1. Word Processor 题解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/16/usaco16janT1B/" rel="next" title="USACO 16Jan Bronze T1. Promotion Counting 题解">
-                  USACO 16Jan Bronze T1. Promotion Counting 题解 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

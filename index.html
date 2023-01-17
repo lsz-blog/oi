@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,7 +161,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,102 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://oi.shuzhouliu.bio/2023/01/17/usaco19openT1B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="shuzhou liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shuzhouliu's OI Blog">
+      <meta itemprop="description" content="shuzhouliu's OI Blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | shuzhouliu's OI Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/17/usaco19openT1B/" class="post-title-link" itemprop="url">USACO 19Open Bronze T1 - Bucket Brigade 题解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-01-17 09:26:35 / 修改时间：09:30:15" itemprop="dateCreated datePublished" datetime="2023-01-17T09:26:35+08:00">2023-01-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>257</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>题意：给定一个 <span class="math inline">\(10\times 10\)</span> 的矩阵，有一个 <code>B</code>、一个 <code>L</code> 和一个 <code>R</code>，其中 <code>R</code> 那格不能走。现在求 <code>B</code> 和 <code>L</code> 之间的最短路（不包括 <code>B</code> 和 <code>L</code>）。</p>
+<p>这题是1权图的最短路，可以用 BFS 求。对于 <code>R</code> 那格特判即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dx[] = &#123;<span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dy[] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"><span class="type">char</span> c[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">bool</span> vst[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> bx, by, rx, ry, lx, ly;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">state</span> &#123;</span><br><span class="line">  <span class="type">int</span> x, y, t;</span><br><span class="line">  <span class="built_in">state</span> (<span class="type">int</span> x = <span class="number">0</span>, <span class="type">int</span> y = <span class="number">0</span>, <span class="type">int</span> t = <span class="number">0</span>): <span class="built_in">x</span>(x), <span class="built_in">y</span>(y), <span class="built_in">t</span>(t) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">freopen</span>(<span class="string">&quot;buckets.in&quot;</span>, <span class="string">&quot;r&quot;</span>, stdin);</span><br><span class="line">  <span class="built_in">freopen</span>(<span class="string">&quot;buckets.out&quot;</span>, <span class="string">&quot;w&quot;</span>, stdout);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">      cin &gt;&gt; c[i][j];</span><br><span class="line">      <span class="keyword">if</span> (c[i][j] == <span class="string">&#x27;B&#x27;</span>) bx = i, by = j;</span><br><span class="line">      <span class="keyword">if</span> (c[i][j] == <span class="string">&#x27;R&#x27;</span>) rx = i, ry = j;</span><br><span class="line">      <span class="keyword">if</span> (c[i][j] == <span class="string">&#x27;L&#x27;</span>) lx = i, ly = j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  queue&lt;state&gt; q;</span><br><span class="line">  q.<span class="built_in">push</span>(&#123;lx, ly, <span class="number">0</span>&#125;); <span class="comment">// ltob</span></span><br><span class="line">  <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    <span class="keyword">auto</span> t = q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">    vst[t.x][t.y] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (t.x == bx &amp;&amp; t.y == by) &#123;</span><br><span class="line">      cout &lt;&lt; <span class="built_in">max</span>(t.t<span class="number">-1</span>, <span class="number">0</span>) &lt;&lt; endl;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++) &#123;</span><br><span class="line">      <span class="type">int</span> nx = t.x + dx[k], ny = t.y + dy[k];</span><br><span class="line">      <span class="keyword">if</span> (nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; <span class="number">10</span> &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; <span class="number">10</span> &amp;&amp; (rx != nx || ry != ny) &amp;&amp; !vst[nx][ny])</span><br><span class="line">        q.<span class="built_in">push</span>(&#123;nx, ny, t.t + <span class="number">1</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -225,7 +321,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-01-17 09:05:41 / 修改时间：09:09:00" itemprop="dateCreated datePublished" datetime="2023-01-17T09:05:41+08:00">2023-01-17</time>
+      <time title="创建时间：2023-01-17 09:05:41 / 修改时间：09:30:15" itemprop="dateCreated datePublished" datetime="2023-01-17T09:05:41+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,7 +424,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-17 09:09:00" itemprop="dateModified" datetime="2023-01-17T09:09:00+08:00">2023-01-17</time>
+      <time title="修改时间：2023-01-17 09:30:15" itemprop="dateModified" datetime="2023-01-17T09:30:15+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,7 +526,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-17 09:09:00" itemprop="dateModified" datetime="2023-01-17T09:09:00+08:00">2023-01-17</time>
+      <time title="修改时间：2023-01-17 09:30:15" itemprop="dateModified" datetime="2023-01-17T09:30:15+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -532,7 +628,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-17 09:09:00" itemprop="dateModified" datetime="2023-01-17T09:09:00+08:00">2023-01-17</time>
+      <time title="修改时间：2023-01-17 09:30:15" itemprop="dateModified" datetime="2023-01-17T09:30:15+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -634,7 +730,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-17 09:09:00" itemprop="dateModified" datetime="2023-01-17T09:09:00+08:00">2023-01-17</time>
+      <time title="修改时间：2023-01-17 09:30:15" itemprop="dateModified" datetime="2023-01-17T09:30:15+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -736,7 +832,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-17 09:09:00" itemprop="dateModified" datetime="2023-01-17T09:09:00+08:00">2023-01-17</time>
+      <time title="修改时间：2023-01-17 09:30:15" itemprop="dateModified" datetime="2023-01-17T09:30:15+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -838,7 +934,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-17 09:09:00" itemprop="dateModified" datetime="2023-01-17T09:09:00+08:00">2023-01-17</time>
+      <time title="修改时间：2023-01-17 09:30:15" itemprop="dateModified" datetime="2023-01-17T09:30:15+08:00">2023-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -950,7 +1046,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6 分钟</span>
+    <span title="站点阅读时长">7 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
